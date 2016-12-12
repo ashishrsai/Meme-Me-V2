@@ -58,7 +58,11 @@
                                 <rect key="frame" x="0.0" y="8" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="eXV-Qo-IPx">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="RWU-Sj-yiF"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="RWU-Sj-yiF">
+                                            <connections>
+                                                <action selector="shareAction:" destination="BYZ-38-t0r" id="wHM-qn-kad"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="jeA-Aa-bi8">
                                             <connections>
                                                 <action selector="cancelAction:" destination="BYZ-38-t0r" id="KLn-LP-2RB"/>
@@ -97,7 +101,9 @@
                         <outlet property="cancel" destination="jeA-Aa-bi8" id="3Od-It-Rtr"/>
                         <outlet property="gal" destination="R1H-Sx-p6T" id="msv-o7-b4B"/>
                         <outlet property="imageView" destination="LGY-gU-xBz" id="TZA-QT-xEg"/>
+                        <outlet property="navBar" destination="kkm-9C-zAN" id="C3b-aC-FbS"/>
                         <outlet property="share" destination="RWU-Sj-yiF" id="9rc-e0-i1Z"/>
+                        <outlet property="toolBar" destination="44e-MU-TgO" id="xRk-aW-2z2"/>
                         <outlet property="topText" destination="YZD-aX-V5h" id="2ff-gm-782"/>
                     </connections>
                 </viewController>

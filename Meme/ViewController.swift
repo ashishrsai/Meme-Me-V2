@@ -23,6 +23,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     //Outlets for texts
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    //Outlets for navbar and topbar
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var navBar: UINavigationBar!
+    
 
     
     override func viewDidLoad() {
@@ -43,6 +47,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if imageView.image == nil {
+            share.isEnabled = false
+        } else {
+            share.isEnabled = true
+        }
+
         subscribeToKeyboardNotifications()
     }
     
@@ -126,9 +136,63 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
     }
-
+    
+    //To dismiss keyboard after editing is done
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    //function to save Meme 
+    func save() {
+        // Create the meme
+        let memedImage = generateMemedImage()
+        
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: imageView.image!, memedImage: memedImage)
+        print(meme)
+    }
+    //function to genrate meme
+    
+    func generateMemedImage() -> UIImage {
+        
+        navBar.isHidden = true
+        toolBar.isHidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        navBar.isHidden = false
+        toolBar.isHidden = false
+        
+        return memedImage
+    }
+    //share method
+    
+    @IBAction func shareAction(_ sender: Any) {
+        let memedImage = generateMemedImage()
+        let activityController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        activityController.completionWithItemsHandler = { activity, success, items, error in
+            self.save()
+            self.dismiss(animated: true, completion: nil)
+        }
+        present(activityController, animated: true, completion: nil)
+    }
+    
+    //method to use in order to get rid of default entries 
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+            if (topText.text == "TOP") {
+                topText.text = ""
+            }
+            if (bottomText.text == "BOTTOM")
+            {
+                bottomText.text = ""
+            }
 
 }
-
+}
 
 
