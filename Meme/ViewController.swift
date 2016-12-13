@@ -31,16 +31,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //here we set the initial value of all the textField 
-        topText.text = "TOP"
-        topText.defaultTextAttributes = memeTextAttributes
-        topText.textAlignment = .center
-        topText.delegate = self
-        //we do the same thing for bottomText
-        bottomText.text = "BOTTOM"
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.textAlignment = .center
-        bottomText.delegate = self
+        modifyText(textField: topText, text: "TOP")
+        modifyText(textField: bottomText, text: "BOTTOM")
+    }
+    //We use this function to modify the text
+    func modifyText (textField : UITextField, text: String)
+    {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.delegate = self
+        textField.text = text
+        
     }
     
     //we use viewWillAppear for keyboard thing
@@ -192,7 +193,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             {
                 bottomText.text = ""
             }
-
+        
+    
+     
 }
 }
 
