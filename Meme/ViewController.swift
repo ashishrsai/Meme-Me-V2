@@ -151,6 +151,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: imageView.image!, memedImage: memedImage)
         print(meme)
+        
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     //function to genrate meme
     
