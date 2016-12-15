@@ -150,11 +150,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let memedImage = generateMemedImage()
         
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: imageView.image!, memedImage: memedImage)
-        print(meme)
+        
+        print("save() is called")
+
         
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
+        
     }
     //function to genrate meme
     

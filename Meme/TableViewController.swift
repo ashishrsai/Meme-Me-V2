@@ -10,7 +10,9 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    var memes : [Meme]!
+   var memes: [Meme]!
+@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,21 +21,22 @@ class TableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = appDelegate.memes
-        tableView.reloadData()
-    
+        
+        self.navigationItem.title = "Sent Memes"
+        self.tableView?.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                return memes.count
+        print(memes.count)
+        return memes.count
     }
     
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReuseCell", for : indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell", for : indexPath)
         let meme = memes[indexPath.row]
         cell.textLabel?.text = meme.topText + " " + meme.bottomText
         cell.imageView?.image = meme.memedImage
