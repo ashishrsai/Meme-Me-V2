@@ -54,6 +54,7 @@ class CollectionViewController: UICollectionViewController {
         newController.meme = memes[indexPath.row]
         navigationController!.pushViewController(newController, animated: true)
         
+        
     }
     
     @IBAction func takemetomain(_ sender: Any) {

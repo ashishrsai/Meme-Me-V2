@@ -47,7 +47,7 @@ class TableViewController: UITableViewController {
         let newController = storyboard!.instantiateViewController(withIdentifier: "finalView") as! finalView
         newController.meme = memes[indexPath.row]
         navigationController!.pushViewController(newController, animated: true)
-    }
+            }
     
     
     @IBAction func taketomain(_ sender: Any) {
