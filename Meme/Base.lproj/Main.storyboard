@@ -98,7 +98,7 @@
         <scene sceneID="R7o-Ar-cuX">
             <objects>
                 <navigationController id="JHJ-gj-DgR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" image="collection_30x30" selectedImage="collection_30x30" id="vLS-3p-l3S"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="colImage" selectedImage="colImage" id="vLS-3p-l3S"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bXq-5l-jJZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -169,7 +169,7 @@
         <scene sceneID="lD6-Og-3Qu">
             <objects>
                 <navigationController id="hhF-I0-Zri" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" image="table_30x30" selectedImage="table_30x30" id="YCD-xA-7K2"/>
+                    <tabBarItem key="tabBarItem" title="List" image="tableImage" selectedImage="tableImage" id="YCD-xA-7K2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NBA-F4-ecu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -288,8 +288,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="collection_30x30" width="30" height="30"/>
-        <image name="table_30x30" width="30" height="30"/>
+        <image name="colImage" width="30" height="30"/>
+        <image name="tableImage" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gxd-KD-f6i"/>
