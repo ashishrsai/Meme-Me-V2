@@ -11,7 +11,7 @@ import UIKit
 class TableViewController: UITableViewController {
     
    var memes: [Meme]!
-@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+
 
 
     override func viewDidLoad() {
@@ -21,9 +21,8 @@ class TableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        memes = appDelegate.memes
-        
+        let controller = UIApplication.shared.delegate as! AppDelegate
+        memes = controller.memes
         self.navigationItem.title = "Sent Memes"
         self.tableView?.reloadData()
     }
@@ -45,12 +44,16 @@ class TableViewController: UITableViewController {
   
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailController = storyboard!.instantiateViewController(withIdentifier: "finalView") as! finalView
-        detailController.meme = memes[indexPath.row]
-        navigationController!.pushViewController(detailController, animated: true)
+        let newController = storyboard!.instantiateViewController(withIdentifier: "finalView") as! finalView
+        newController.meme = memes[indexPath.row]
+        navigationController!.pushViewController(newController, animated: true)
     }
     
     
+    @IBAction func taketomain(_ sender: Any) {
+        let movetomain = storyboard!.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        present(movetomain, animated: true, completion: nil)
+    }
 
 
 

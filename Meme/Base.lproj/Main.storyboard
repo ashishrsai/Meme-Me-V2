@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" id="Ifb-Hh-DTZ">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="UzU-nD-dTF">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="dVl-yS-2cY"/>
+                                <action selector="taketomain:" destination="rO7-xr-PJr" id="0Ht-y3-ZYN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -94,11 +94,11 @@
             </objects>
             <point key="canvasLocation" x="-2359" y="1381"/>
         </scene>
-        <!--Item-->
+        <!--Collection-->
         <scene sceneID="R7o-Ar-cuX">
             <objects>
                 <navigationController id="JHJ-gj-DgR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vLS-3p-l3S"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="collection_30x30" selectedImage="collection_30x30" id="vLS-3p-l3S"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bXq-5l-jJZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -153,7 +153,7 @@
                     <navigationItem key="navigationItem" id="sEC-DP-vtu">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="WfU-35-fsb">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="FoF-y2-wC6"/>
+                                <action selector="takemetomain:" destination="uJF-9d-IKy" id="lMR-BW-uod"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -165,11 +165,11 @@
             </objects>
             <point key="canvasLocation" x="-420" y="1753.6731634182911"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="lD6-Og-3Qu">
             <objects>
                 <navigationController id="hhF-I0-Zri" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="YCD-xA-7K2"/>
+                    <tabBarItem key="tabBarItem" title="List" image="table_30x30" selectedImage="table_30x30" id="YCD-xA-7K2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NBA-F4-ecu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -186,7 +186,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="new" id="BYZ-38-t0r" customClass="ViewController" customModule="Meme" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Meme" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -214,7 +214,7 @@
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-gU-xBz">
-                                <rect key="frame" x="0.0" y="104" width="375" height="519"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="563"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BiQ-fh-glz">
                                 <rect key="frame" x="26" y="537" width="323" height="48"/>
@@ -223,13 +223,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZD-aX-V5h">
-                                <rect key="frame" x="26" y="143" width="323" height="48"/>
+                                <rect key="frame" x="26" y="99" width="323" height="48"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkm-9C-zAN">
-                                <rect key="frame" x="0.0" y="60" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="eXV-Qo-IPx">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="RWU-Sj-yiF">
@@ -269,6 +269,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LGY-gU-xBz" secondAttribute="bottom" constant="44" id="ySj-lm-l3l"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NBK-cC-5lO"/>
                     <connections>
                         <outlet property="bottomText" destination="BiQ-fh-glz" id="n25-rS-hpy"/>
                         <outlet property="camera" destination="0kU-t8-2aj" id="r4o-nP-kQg"/>
@@ -286,9 +287,12 @@
             <point key="canvasLocation" x="950" y="918"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection_30x30" width="30" height="30"/>
+        <image name="table_30x30" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gxd-KD-f6i"/>
         <segue reference="EU9-dr-34W"/>
-        <segue reference="FoF-y2-wC6"/>
     </inferredMetricsTieBreakers>
 </document>

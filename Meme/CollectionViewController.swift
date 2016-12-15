@@ -23,13 +23,15 @@ class CollectionViewController: UICollectionViewController {
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: height)
+      
+        self.navigationItem.title = "Sent Memes"
     }
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
+        let controller = UIApplication.shared.delegate
+        let appDelegate = controller as! AppDelegate
         memes = appDelegate.memes
         collectionView?.reloadData()
     }
@@ -48,10 +50,15 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         
-        let detailController = storyboard!.instantiateViewController(withIdentifier: "finalView") as!finalView
-        detailController.meme = memes[indexPath.row]
-        navigationController!.pushViewController(detailController, animated: true)
+        let newController = storyboard!.instantiateViewController(withIdentifier: "finalView") as!finalView
+        newController.meme = memes[indexPath.row]
+        navigationController!.pushViewController(newController, animated: true)
         
+    }
+    
+    @IBAction func takemetomain(_ sender: Any) {
+        let iamgoinghome = storyboard!.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        present(iamgoinghome, animated: true, completion: nil)
     }
 
 }
